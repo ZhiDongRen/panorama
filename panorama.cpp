@@ -38,9 +38,9 @@ int main() {
         cv::Mat frame2_cropped = frame2(cv::Rect(0, 0, camera_width, camera_height));
         cv::Mat frame3_cropped = frame3(cv::Rect(0, 0, camera_width, camera_height));
         cv::Mat frame4_cropped = frame4(cv::Rect(0, 0, camera_width, camera_height));
-        cv::vconcat(&frame1_cropped, &frame2_cropped, &panorama);
-        cv::vconcat(&panorama, &frame3_cropped, &panorama);
-        cv::vconcat(&panorama, &frame4_cropped, &panorama);
+       // cv::vconcat(&frame1_cropped, &frame2_cropped, &panorama);
+       // cv::vconcat(&panorama, &frame3_cropped, &panorama);
+       // cv::vconcat(&panorama, &frame4_cropped, &panorama);
 
         // 展示拼接后的图像
         cv::imshow("Panorama", panorama);
