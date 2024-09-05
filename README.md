@@ -11,12 +11,23 @@ RK3588开发板
 
 # visual studio 
 我没有硬件平台，所以选择了 visual studio的cmake项目，可跨平台编译。 \
+./panorama 实现4路摄像头帧拼接  \
+./img_stiched 实现图片拼接思路 \
 调用了opencv库实现4路摄像头*（基于RK3588软硬解算能力设定合适的清晰度）鸟瞰拼接。 \
 常规情况可能会调用Gstreamer库\ffmpeg库
 ## G++ 如下
 g++ -std=c++11 -o panorama panorama.cpp -lcv
 如果在linux平台下可直接调用： ./panorama
 
+
+# 环境搭建
+sudo apt-get install libopencv-dev \
+git clone https://github.com/ZhiDongRen/panorama.git \
+cd panorama \
+sudo mkdir build & cd build \
+cmake .. \
+make -j2 \
+运行对应的代码  \
 ## TODO
 拼接算法、以及摄像头接口新调用（MIPI CSI ）4 lane@30fps ，最多支持7路摄像头 \
 链路解析：mipi camera2---> csi2_dphy1 ---> mipi2_csi2 ---> rkcif_mipi_lvds2--->rkcif_mipi_lvds2_sditf --->rkisp0_vir2 \
